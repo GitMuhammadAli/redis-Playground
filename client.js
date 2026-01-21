@@ -1,10 +1,8 @@
-// client.js
-const Redis = require("ioredis");
+const redis = require("./redisClient");
 
-const client = new Redis({
-  host: "127.0.0.1",
-  port: 6380, // Redis Stack server exposed port
-  // password: "..." // only if you set one
-});
+(async () => {
+  const pong = await redis.ping();
+  console.log("PING:", pong);
 
-module.exports = client;
+  await redis.quit();
+})();

@@ -4,7 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "redis:up": "docker run -d --name redis-playground-stack -p 6381:6379 -p 5540:8001 redis/redis-stack:latest",
+    "redis:down": "docker rm -f redis-playground-stack",
+    "redis:logs": "docker logs -f redis-playground-stack",
+    "redis:ping": "docker exec -it redis-playground-stack redis-cli PING",
+    "redis:cli": "docker exec -it redis-playground-stack redis-cli",
+    "run:client": "node client.js",
+    "run:queue": "node stack-qeue.js",
+    "run:string": "node string.js",
+    "run:bike": "node bike.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +25,7 @@
   },
   "homepage": "https://github.com/GitMuhammadAli/redis-Playground#readme",
   "dependencies": {
+    "dotenv": "^17.2.3",
     "ioredis": "^5.8.2"
   }
 }

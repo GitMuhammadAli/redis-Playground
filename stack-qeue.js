@@ -11,7 +11,7 @@
  * 6. Queue Patterns (FIFO, LIFO, Capped Lists)
  */
 
-const client = require("./client");
+const client = require("./redisClient");
 
 async function init() {
   // =========================================================================

@@ -1,4 +1,4 @@
-const client = require("./client");
+const client = require("./redisClient");
 
 async function init() {
   console.log("DBSIZE:", await client.dbsize());
